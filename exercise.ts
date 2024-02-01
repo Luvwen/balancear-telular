@@ -3,13 +3,13 @@ const puertos = [
     [11, 11, 11, 11, 11, 11],
     [0, 0, 0, 0, 0, 0, 0],
 ];
-let interval;
+let interval: undefined | ReturnType<typeof setTimeout>;
 let flagForNext = false;
 let random = 500;
 let nextItem = 0;
 let currentArr = 0;
 
-const mapPorts = (ports, puerto) => {
+const mapPorts = (ports: number[], puerto: string): void => {
     if (ports.includes(0)) {
         ports.map((_, index) => {
             if (index === nextItem) {
@@ -36,13 +36,13 @@ const mapPorts = (ports, puerto) => {
     getPorts(puertos, random);
 };
 
-const getPuertos = (puertos) => {
+const getPuertos = (puertos: number[][]): void => {
     let a = "PRIMER IP 11";
     let b = "SEGUNDO IP 12";
     let c = "TERCER IP 14";
     flagForNext = random >= 400 && random <= 600 ? true : false;
 
-    puertos.map((puerto, index) => {
+    puertos.map((puerto: number[], index: number) => {
         if (flagForNext) {
             if (index === currentArr) {
                 if (currentArr === 0) {
@@ -60,7 +60,7 @@ const getPuertos = (puertos) => {
     getPorts(puertos, random);
 };
 
-const getPorts = (puertos, timer) => {
+const getPorts = (puertos: number[][], timer: number) => {
     interval = setInterval(() => {
         getPuertos(puertos);
     }, timer);
