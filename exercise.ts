@@ -40,7 +40,7 @@ const getPuertos = (puertos: number[][]): void => {
     let a = "PRIMER IP 11";
     let b = "SEGUNDO IP 12";
     let c = "TERCER IP 14";
-    flagForNext = random >= 400 && random <= 600 ? true : false;
+    flagForNext = random >= 300 && random <= 600 ? true : false;
 
     puertos.map((puerto: number[], index: number) => {
         if (flagForNext) {
